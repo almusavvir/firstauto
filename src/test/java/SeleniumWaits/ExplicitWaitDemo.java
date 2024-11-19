@@ -24,6 +24,8 @@ public class ExplicitWaitDemo {
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orangehrm-login-slot']//button")));
         loginButton.click();
 
+        // added navigate - 19 nov 2024 - msvr
+
         driver.navigate().to("https://croma.com");
         driver.close();
         // driver.close();
