@@ -27,7 +27,7 @@ public class ExplicitWaitDemo {
         // added navigate - 19 nov 2024 - msvr
 
         driver.navigate().to("https://croma.com");
-        driver.close();
+        //driver.close();
         // driver.close();
     }
 }
