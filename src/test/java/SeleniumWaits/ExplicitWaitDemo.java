@@ -23,6 +23,9 @@ public class ExplicitWaitDemo {
         inputPassword.sendKeys("admin123");
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orangehrm-login-slot']//button")));
         loginButton.click();
+
+        driver.navigate().to("https://croma.com");
+        driver.close();
         // driver.close();
     }
 }
