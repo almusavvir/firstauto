@@ -18,6 +18,11 @@ public class ExplicitWaitDemo {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // declaration
         WebElement inputUsername = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Username']")));
         inputUsername.sendKeys("Admin");
-//        driver.close();
+
+        WebElement inputPassword = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Password']")));
+        inputPassword.sendKeys("admin123");
+        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orangehrm-login-slot']//button")));
+        loginButton.click();
+        // driver.close();
     }
 }
