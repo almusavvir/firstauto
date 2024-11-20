@@ -6,6 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CromaIphone16Finder {
     public static <Set> void main(String[] args) throws InterruptedException {
@@ -21,11 +25,11 @@ public class CromaIphone16Finder {
         mainSearchBox.sendKeys("Iphone 16");
         mainSearchBox.sendKeys(Keys.ENTER);
 
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //Thread.sleep(2000);
 
-        // LOCATE IPHONE 16 ULTRAMARINE 128GB VARIANT
-        WebElement iphone16CardUltra = driver.findElement(By.xpath("(//a[contains(text(), '128GB, Ultramarine')])[1]"));
+        // LOCATE IPHONE 16 ULTRAMARINE 128GB VARIANT @msvr -> added wait until 20-11
+        WebElement iphone16CardUltra = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(text(), '128GB, Ultramarine')])[1]")));
         iphone16CardUltra.click();
 
         //GET WINDOW HANDLES AND SWITCH TO THE NEW TAB
@@ -39,11 +43,13 @@ public class CromaIphone16Finder {
         Actions actions = new Actions(driver);
         actions.moveToElement(backPageRootDiv).click().sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).perform();
 
-        Thread.sleep(2000);
-
-        //CLICK ON THE BUY NOW BUTTON
-        WebElement buyNowButton = driver.findElement(By.xpath("(//button[contains(text(), 'Buy Now')][1])"));
+        //CLICK ON THE BUY NOW BUTTON @msvr -> added wait untill 20-11
+        WebElement buyNowButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[contains(text(), 'Buy Now')][1])")));
         buyNowButton.click();
+
+        // @msvr >> adding wait for checkout button to be clickable before closing window
+        WebElement checkoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='side-bar']//button")));
+        driver.close();
 
         //WebElement exchangePhoneButton = driver.findElement(By.xpath("(//button[contains(text(), 'Choose Phone for Exchange')][1])"));
         //exchangePhoneButton.click();
