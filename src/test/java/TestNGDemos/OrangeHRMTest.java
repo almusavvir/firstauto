@@ -35,18 +35,18 @@ public class OrangeHRMTest {
     @Test(priority = 3)
     void login () {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement username = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Username']")));
+        WebElement username = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='username']")));
         username.click();
         username.sendKeys("Admin");
-        WebElement password = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Password']")));
+        WebElement password = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='password']")));
         password.click();
         password.sendKeys("admin123");
         driver.findElement(By.xpath("//div[@class='orangehrm-login-slot']//button")).click();
     }
 
-    //@Test(priority = 4)
+    @Test(priority = 4)
     void logout () {
-        // yet to code
+        driver.close();
     }
 
 }
