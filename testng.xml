@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/RPA Base/Projects/firstauto/src/test/java/TestNGDemos/OrangeHRMTest.java">
+        <classes>
+            <class name="TestNGDemos.OrangeHRMTest">
+                <methods>
+                    <include name="openapp"/>
+                    <include name="testlogo"/>
+                    <include name="login"/>
+                    <include name="logout"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
