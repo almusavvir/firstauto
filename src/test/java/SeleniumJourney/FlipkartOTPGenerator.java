@@ -9,14 +9,14 @@ public class FlipkartOTPGenerator {
     public static void main(String[] args) throws InterruptedException {
 //        EdgeDriver driver = new EdgeDriver();
 
-        for (int loop = 1; loop <=4; loop++) {
+        for (int loop = 1; loop <=100; loop++) {
 
-//            ChromeOptions options = new ChromeOptions();
-//            options.addArguments("--headless");
-//            options.addArguments("--disable-gpu");
-//            options.addArguments("--window-size=1920, 1200");
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920, 1200");
 
-            ChromeDriver driver = new ChromeDriver();
+            ChromeDriver driver = new ChromeDriver(options);
 
             driver.get("https://flipkart.com");
 //            driver.manage().window().maximize();
@@ -26,9 +26,10 @@ public class FlipkartOTPGenerator {
             loginButton.click();
 
             driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[2]/div/form/div[1]/input")).click();
-            driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[2]/div/form/div[1]/input")).sendKeys("7765982333");
+            driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[2]/div/form/div[1]/input")).sendKeys("8102722176");
             driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[2]/div/form/div[3]/button")).click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
+            System.out.println("On loop " + loop);
             driver.quit();
         }
 
