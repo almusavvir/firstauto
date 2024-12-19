@@ -6,13 +6,14 @@ package TestNGDemos;
 */
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class FirstTestCase {
 
-    ChromeDriver driver;
+    WebDriver driver;
 
     @BeforeClass
     void setUp() {
@@ -33,7 +34,6 @@ public class FirstTestCase {
     @Test(priority = 3)
     void logout () throws InterruptedException {
         Thread.sleep(5000);
-//        System.out.println("logged out");
         driver.close();
     }
 
