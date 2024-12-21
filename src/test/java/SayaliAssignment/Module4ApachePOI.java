@@ -14,15 +14,15 @@ public class Module4ApachePOI {
         WebDriver driver = new ChromeDriver();
 
         //read data from Excel for id and password
-        String projectDir = System.getProperty("user.dir");
-        String os = System.getProperty("os.name");
-        String fileLocation = "";
-        if(Objects.equals(os, "Linux")) {
-            fileLocation = projectDir + "/src/test/java/SayaliAssignment/guru99creds.xlsx";
-        } else {
-            fileLocation = projectDir + "\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
-        }
-
+//        String projectDir = System.getProperty("user.dir");
+//        String os = System.getProperty("os.name");
+//        String fileLocation = "";
+//        if(Objects.equals(os, "Linux")) {
+//            fileLocation = projectDir + "/src/test/java/SayaliAssignment/guru99creds.xlsx";
+//        } else {
+//            fileLocation = projectDir + "\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
+//        }
+        String fileLocation = "C:\\Users\\RPA Base\\Projects\\firstauto\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
         String[] credentials = ExcelReader.readCredentials(fileLocation);
 
         //launch app and open URL
