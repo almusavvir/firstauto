@@ -13,10 +13,9 @@ import java.io.IOException;
 public class ExcelReader{
     public static String[] readCredentials(String filelocation) throws IOException {
 
-        String fileLocation = filelocation;
         String[] credentials = new String[2];
 
-        FileInputStream file = new FileInputStream(fileLocation);
+        FileInputStream file = new FileInputStream(filelocation);
 
         XSSFWorkbook workbook = new XSSFWorkbook(file);      // create a workbook object
         XSSFSheet sheet = workbook.getSheet("Sheet1"); // create a sheet from Sheet1 at workbook

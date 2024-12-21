@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Module4ApachePOI {
     public static void main(String[] args) throws IOException {
@@ -13,7 +14,16 @@ public class Module4ApachePOI {
         WebDriver driver = new ChromeDriver();
 
         //read data from Excel for id and password
-        String[] credentials = ExcelReader.readCredentials("C:\\Users\\RPA Base\\Projects\\firstauto\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx");
+        String projectDir = System.getProperty("user.dir");
+        String os = System.getProperty("os.name");
+        String fileLocation = "";
+        if(Objects.equals(os, "Linux")) {
+            fileLocation = projectDir + "/src/test/java/SayaliAssignment/guru99creds.xlsx";
+        } else {
+            fileLocation = projectDir + "\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
+        }
+
+        String[] credentials = ExcelReader.readCredentials(fileLocation);
 
         //launch app and open URL
         driver.get("http://demo.guru99.com/V4/");
