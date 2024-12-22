@@ -1,0 +1,1 @@
+{"uuid":"de2899c1-a45a-432f-ac5c-796635536414","name":"firstauto","children":["d673e614-591f-4461-b487-14cd3fb518a5","88bc83d0-66e8-48a3-8d82-a81741800697"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1734858265033,"stop":1734858267482}],"afters":[],"start":1734858265013,"stop":1734858269246}

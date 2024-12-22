@@ -1,28 +1,33 @@
 package SayaliAssignment;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Objects;
 
 public class Module4ApachePOI {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         //setup
         WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         //read data from Excel for id and password
-//        String projectDir = System.getProperty("user.dir");
-//        String os = System.getProperty("os.name");
-//        String fileLocation = "";
-//        if(Objects.equals(os, "Linux")) {
-//            fileLocation = projectDir + "/src/test/java/SayaliAssignment/guru99creds.xlsx";
-//        } else {
-//            fileLocation = projectDir + "\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
-//        }
-        String fileLocation = "C:\\Users\\RPA Base\\Projects\\firstauto\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
+        String projectDir = System.getProperty("user.dir");
+        String fileLocation = "";
+        if(Objects.equals(System.getProperty("os.name"), "Linux")) {
+            fileLocation = projectDir + "/src/test/java/SayaliAssignment/guru99creds.xlsx";
+        } else {
+            fileLocation = projectDir + "\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
+        }
+        //String fileLocation = "C:\\Users\\RPA Base\\Projects\\firstauto\\src\\test\\java\\SayaliAssignment\\guru99creds.xlsx";
         String[] credentials = ExcelReader.readCredentials(fileLocation);
 
         //launch app and open URL
@@ -37,5 +42,7 @@ public class Module4ApachePOI {
         userName.click(); userName.sendKeys(credentials[0]);
         password.click(); password.sendKeys(credentials[1]);
         loginButton.click();
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
     }
 }
