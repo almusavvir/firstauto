@@ -1,10 +1,8 @@
 package SayaliAssignment;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import ErLogger.ErLogger;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
@@ -17,7 +15,7 @@ public class Module4ApachePOI {
     public static void main(String[] args) throws IOException, InterruptedException {
         //setup
         WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 
         //read data from Excel for id and password
         String projectDir = System.getProperty("user.dir");
@@ -42,7 +40,13 @@ public class Module4ApachePOI {
         userName.click(); userName.sendKeys(credentials[0]);
         password.click(); password.sendKeys(credentials[1]);
         loginButton.click();
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+
+        try {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            alert.accept();
+        }
+        catch(TimeoutException e) {
+            ErLogger.LogAlertNotFound();
+        }
     }
 }
