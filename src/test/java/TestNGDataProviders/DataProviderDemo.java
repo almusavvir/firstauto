@@ -1,7 +1,7 @@
 package TestNGDataProviders;
 
-import BrowserUtils.HeadlessBrowser;
-import TestUtils.ScreenShotUtil;
+import browserUtils.HeadlessBrowser;
+import testUtils.ScreenShotUtil;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
