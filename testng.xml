@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-<!--    <test verbose="2" preserve-order="true" name="orangeHRMsmoke">-->
-<!--        <classes>-->
-<!--            <class name="TestNGDemos.OrangeHRMTest">-->
-<!--            </class>-->
-<!--            <class name="TestNGDemos.FirstTestCase">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-    <test preserve-order="true" name="dataProviderDemo">
+    <listeners>
+        <listener class-name="testngListenerDemo.MyListener"/>
+    </listeners>
+    <test preserve-order="true"
+          name="/home/muzz/Projects/qa/firstauto/src/test/java/testngListenerDemo/ListenerDemo.java">
         <classes>
-            <class name="TestNGDataProviders.DataProviderDemo">
+            <class name="testngListenerDemo.ListenerDemo">
+                <methods>
+                    <include name="testLogin"/>
+                </methods>
             </class>
         </classes>
     </test>
