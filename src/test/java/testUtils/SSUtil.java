@@ -23,7 +23,7 @@ public class SSUtil {
         File destFile = new File(
                 System.getProperty("os.name").equals("Linux") ?
                 "/home/muzz/Projects/qa/firstauto/test-output/screenshots/snap1.png" :
-                "C:\\Users\\devbase\\Projects\\firstauto\\test-output\\screenshots"
+                "C:\\Users\\devbase\\Projects\\firstauto\\test-output\\screenshots\\snap2.png"
         );
 
         //copy the output from step 3 into the blank image file we created
@@ -33,7 +33,7 @@ public class SSUtil {
     public static void main(String[] args) throws IOException, InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://https://mdfaizanashrafi.github.io/");
+        driver.navigate().to("https://mdfaizanashrafi.github.io/");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         SSUtil.takeScreenshot(driver);
