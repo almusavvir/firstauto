@@ -6,17 +6,18 @@ package TestNGDemos;
 * close
  */
 
+import browserUtils.HeadlessBrowser;
+import testUtils.ScreenShotUtil;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class OrangeHRMTest {
@@ -25,8 +26,8 @@ public class OrangeHRMTest {
 
     @BeforeClass
     void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:/Program Files/Google/Chromedriver/chromedriver-win64/chromedriver.exe");
-        driver = new ChromeDriver();
+        //System.setProperty("webdriver.chrome.driver", "C:/Program Files/Google/Chromedriver/chromedriver-win64/chromedriver.exe");
+        driver = new HeadlessBrowser().createHeadlessChrome(driver);
         driver.manage().window().maximize();
     }
 
@@ -45,7 +46,7 @@ public class OrangeHRMTest {
 
     @Step("Test Case 003")
     @Test(priority = 3)
-    void login () {
+    void login () throws IOException, InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement username = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='username' or @placeholder='Username']")));
         username.click();
@@ -54,6 +55,8 @@ public class OrangeHRMTest {
         password.click();
         password.sendKeys("admin123");
         driver.findElement(By.xpath("//div[@class='orangehrm-login-slot']//button")).click();
+        Thread.sleep(5000);
+        ScreenShotUtil.takeScreenshot(driver);
     }
 
     @Test(priority = 4)
