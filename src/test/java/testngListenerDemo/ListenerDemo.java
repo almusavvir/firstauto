@@ -2,7 +2,7 @@ package testngListenerDemo;
 
 import browserUtils.HeadlessBrowser;
 import org.openqa.selenium.chrome.ChromeDriver;
-import testUtils.ScreenShotUtil;
+import testUtils.SSUtil;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -38,7 +38,7 @@ public class ListenerDemo {
             WebElement loginWarning = driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']"));
             String loginWarningText = loginWarning.getText();
             System.out.println("--> " + loginWarningText);
-            ScreenShotUtil.takeScreenshot(driver); // take SS of failed case
+            SSUtil.takeScreenshot(driver); // take SS of failed case
         }
 
         if(loginStatus) {

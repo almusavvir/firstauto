@@ -19,10 +19,10 @@ public class SSUtil {
         //call the getScreenShotAs method which returns a FILE type and store it
         File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
 
-        //create a blank image file at a desired location ** updated with cross platform folder location
+        //create a blank image file at a desired location ** updated with cross-platform folder location
         File destFile = new File(
                 System.getProperty("os.name").equals("Linux") ?
-                "/home/muzz/Projects/qa/firstauto/test-output/screenshots/snap1.png" :
+                "/home/msvr/projects/firstauto/test-output/screenshots/snap1.png" :
                 "C:\\Users\\devbase\\Projects\\firstauto\\test-output\\screenshots"
         );
 
@@ -33,9 +33,10 @@ public class SSUtil {
     public static void main(String[] args) throws IOException, InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://https://mdfaizanashrafi.github.io/");
+        driver.navigate().to("https://mdfaizanashrafi.github.io/");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         SSUtil.takeScreenshot(driver);
+        driver.quit();
     }
 }
