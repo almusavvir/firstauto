@@ -37,5 +37,6 @@ public class SSUtil {
         driver.manage().window().maximize();
         Thread.sleep(2000);
         SSUtil.takeScreenshot(driver);
+        driver.quit();
     }
 }
