@@ -33,7 +33,7 @@ public class SSUtil {
     public static void main(String[] args) throws IOException, InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://mdfaizanashrafi.github.io/");
+        driver.navigate().to("https://www.youtube.com/");
         driver.manage().window().maximize();
         Thread.sleep(2000);
         SSUtil.takeScreenshot(driver);
