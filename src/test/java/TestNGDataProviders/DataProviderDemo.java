@@ -1,7 +1,7 @@
 package TestNGDataProviders;
 
 import browserUtils.HeadlessBrowser;
-import testUtils.ScreenShotUtil;
+import testUtils.SSUtil;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -34,7 +34,7 @@ public class DataProviderDemo {
                 WebElement loginWarning = driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']"));
                 String loginWarningText = loginWarning.getText();
                 System.out.println("--> " + loginWarningText);
-                ScreenShotUtil.takeScreenshot(driver);
+                SSUtil.takeScreenshot(driver);
             }
 
             if(loginStatus) {

@@ -7,7 +7,7 @@ package TestNGDemos;
  */
 
 import browserUtils.HeadlessBrowser;
-import testUtils.ScreenShotUtil;
+import testUtils.SSUtil;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -56,7 +56,7 @@ public class OrangeHRMTest {
         password.sendKeys("admin123");
         driver.findElement(By.xpath("//div[@class='orangehrm-login-slot']//button")).click();
         Thread.sleep(5000);
-        ScreenShotUtil.takeScreenshot(driver);
+        SSUtil.takeScreenshot(driver);
     }
 
     @Test(priority = 4)
