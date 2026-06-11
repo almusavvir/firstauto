@@ -12,9 +12,9 @@ public class FlipkartOTPGenerator {
         for (int loop = 1; loop <=100; loop++) {
 
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--window-size=1920, 1200");
+//            options.addArguments("--headless");
+//            options.addArguments("--disable-gpu");
+//            options.addArguments("--window-size=1920, 1200");
 
             ChromeDriver driver = new ChromeDriver(options);
 
@@ -22,12 +22,14 @@ public class FlipkartOTPGenerator {
 //            driver.manage().window().maximize();
 
             //login
-            WebElement loginButton = driver.findElement(By.xpath("//a[@class='_1TOQfO']"));
-            loginButton.click();
+//            WebElement loginButton = driver.findElement(By.xpath("//a[@class='_1TOQfO']"));
+//            loginButton.click();
 
-            driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[2]/div/form/div[1]/input")).click();
-            driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[2]/div/form/div[1]/input")).sendKeys("8102722176");
-            driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[2]/div/form/div[3]/button")).click();
+            Thread.sleep(2000);
+
+            driver.findElement(By.xpath("//input[@class='xkp9Hl ZvCKfk']")).click();
+            driver.findElement(By.xpath("//input[@class='xkp9Hl ZvCKfk']")).sendKeys("7765982333");
+            driver.findElement(By.xpath("//button[normalize-space()='Request OTP']")).click();
             Thread.sleep(1000);
             System.out.println("On loop " + loop);
             driver.quit();
