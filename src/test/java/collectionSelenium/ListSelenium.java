@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -11,7 +12,11 @@ import java.util.List;
 
 public class ListSelenium {
     public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
+
+        WebDriver driver = new ChromeDriver(options);
 
         try {
             driver.get("https://testautomationpractice.blogspot.com/");
@@ -62,9 +67,13 @@ public class ListSelenium {
 //                System.out.println("Selected option " + colorOption.getText() + " from the dropdown");
 //            }
 //        }
-        } catch (Exception e) {
+        }
+
+        catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
+        }
+
+        finally {
             driver.quit();
         }
     }
